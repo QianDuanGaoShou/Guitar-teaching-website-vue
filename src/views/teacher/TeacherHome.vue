@@ -1,8 +1,24 @@
 <template>
-  <div>
-    <h2>讲师中心</h2>
-    <router-link to="/teacher/course">课程管理</router-link>
-    <router-link to="/teacher/upload">视频上传</router-link>
-    <router-link to="/teacher/income">收益</router-link>
-  </div>
+  <el-row :gutter="20">
+    <el-col :span="6">
+      <el-card>
+        <el-statistic title="课程总数" :value="12" />
+      </el-card>
+    </el-col>
+    <el-col :span="6">
+      <el-card>
+        <el-statistic title="在售课程" :value="8" />
+      </el-card>
+    </el-col>
+    <el-col :span="6">
+      <el-card>
+        <el-statistic title="本月收益" :value="5600" />
+      </el-card>
+    </el-col>
+    <el-col :span="6">
+      <el-card>
+        <el-statistic title="待点评练习" :value="5" />
+      </el-card>
+    </el-col>
+  </el-row>
 </template>
