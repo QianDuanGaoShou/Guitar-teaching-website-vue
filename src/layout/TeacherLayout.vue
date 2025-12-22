@@ -7,11 +7,23 @@
 
     <el-container>
       <el-aside width="200px">
-        <el-menu router>
-          <el-menu-item index="/teacher">首页</el-menu-item>
-          <el-menu-item index="/teacher/course">课程管理</el-menu-item>
-          <el-menu-item index="/teacher/upload">视频上传</el-menu-item>
-          <el-menu-item index="/teacher/income">收益统计</el-menu-item>
+        <el-menu router default-active="/teacher">
+          <el-menu-item index="/teacher">
+            首页
+          </el-menu-item>
+
+          <el-menu-item index="/teacher/course">
+            课程管理
+          </el-menu-item>
+
+          <!-- ✅ 改这里：视频管理 -->
+          <el-menu-item index="/teacher/video">
+            视频管理
+          </el-menu-item>
+
+          <el-menu-item index="/teacher/income">
+            收益统计
+          </el-menu-item>
         </el-menu>
       </el-aside>
 

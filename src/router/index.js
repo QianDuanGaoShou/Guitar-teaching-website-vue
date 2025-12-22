@@ -1,16 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+// ====================
 // 公共页面
+// ====================
 import Login from '@/views/login/Login.vue'
 
-// 学员布局
+// ====================
+// 布局
+// ====================
 import MainLayout from '@/layout/MainLayout.vue'
-
-// 讲师 / 管理员布局
 import TeacherLayout from '@/layout/TeacherLayout.vue'
 import AdminLayout from '@/layout/AdminLayout.vue'
 
-// 学员页面
+// ====================
+// 学员端页面
+// ====================
 import StudentHome from '@/views/student/StudentHome.vue'
 import CourseList from '@/views/student/CourseList.vue'
 import CourseDetail from '@/views/student/CourseDetail.vue'
@@ -18,13 +22,19 @@ import VideoPlay from '@/views/student/VideoPlay.vue'
 import Practice from '@/views/student/Practice.vue'
 import Exam from '@/views/student/Exam.vue'
 
-// 讲师页面
+// ====================
+// 讲师端页面（⚠️全部真实存在）
+// ====================
 import TeacherHome from '@/views/teacher/TeacherHome.vue'
 import CourseManage from '@/views/teacher/CourseManage.vue'
-import VideoUpload from '@/views/teacher/VideoUpload.vue'
+import VideoManage from '@/views/teacher/VideoManage.vue'
+import PracticeManage from '@/views/teacher/PracticeManage.vue'
 import Income from '@/views/teacher/Income.vue'
+import Profile from '@/views/teacher/Profile.vue'
 
-// 管理员页面
+// ====================
+// 管理员端页面
+// ====================
 import AdminHome from '@/views/admin/AdminHome.vue'
 import ContentAudit from '@/views/admin/ContentAudit.vue'
 import IncomeAudit from '@/views/admin/IncomeAudit.vue'
@@ -51,68 +61,30 @@ const routes = [
         path: '/student',
         component: MainLayout,
         children: [
-            {
-                path: '',
-                name: 'StudentHome',
-                component: StudentHome
-            },
-            {
-                path: 'courses',
-                name: 'CourseList',
-                component: CourseList
-            },
-            {
-                path: 'course/:id',
-                name: 'CourseDetail',
-                component: CourseDetail
-            },
-            {
-                path: 'video/:id',
-                name: 'VideoPlay',
-                component: VideoPlay
-            },
-            {
-                path: 'practice',
-                name: 'Practice',
-                component: Practice
-            },
-            {
-                path: 'exam',
-                name: 'Exam',
-                component: Exam
-            }
+            { path: '', component: StudentHome },
+            { path: 'courses', component: CourseList },
+            { path: 'course/:id', component: CourseDetail },
+            { path: 'video/:id', component: VideoPlay },
+            { path: 'practice', component: Practice },
+            { path: 'exam', component: Exam }
         ]
     },
 
     /**
      * =====================
-     * 讲师端
+     * 讲师端（重点）
      * =====================
      */
     {
         path: '/teacher',
         component: TeacherLayout,
         children: [
-            {
-                path: '',
-                name: 'TeacherHome',
-                component: TeacherHome
-            },
-            {
-                path: 'course',
-                name: 'CourseManage',
-                component: CourseManage
-            },
-            {
-                path: 'upload',
-                name: 'VideoUpload',
-                component: VideoUpload
-            },
-            {
-                path: 'income',
-                name: 'TeacherIncome',
-                component: Income
-            }
+            { path: '', component: TeacherHome },
+            { path: 'course', component: CourseManage },
+            { path: 'video', component: VideoManage },
+            { path: 'practice', component: PracticeManage },
+            { path: 'income', component: Income },
+            { path: 'profile', component: Profile }
         ]
     },
 
@@ -125,25 +97,13 @@ const routes = [
         path: '/admin',
         component: AdminLayout,
         children: [
-            {
-                path: '',
-                name: 'AdminHome',
-                component: AdminHome
-            },
-            {
-                path: 'audit',
-                name: 'ContentAudit',
-                component: ContentAudit
-            },
-            {
-                path: 'income',
-                name: 'IncomeAudit',
-                component: IncomeAudit
-            }
+            { path: '', component: AdminHome },
+            { path: 'audit', component: ContentAudit },
+            { path: 'income', component: IncomeAudit }
         ]
     },
 
-    // 兜底 404（可选但推荐）
+    // 兜底
     {
         path: '/:pathMatch(.*)*',
         redirect: '/login'
